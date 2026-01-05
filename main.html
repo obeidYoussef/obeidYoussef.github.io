@@ -243,6 +243,22 @@
             color: var(--accent);
         }
 
+        .card .tech-stack {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 15px;
+        }
+
+        .card .tech-badge {
+            font-size: 11px;
+            padding: 4px 10px;
+            background: rgba(100, 255, 218, 0.1);
+            border: 1px solid rgba(100, 255, 218, 0.3);
+            color: var(--accent);
+            border-radius: 3px;
+        }
+
         .skills-container {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
@@ -436,6 +452,25 @@
             transform: translateY(-3px);
         }
 
+        .github-cta {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            margin-top: 20px;
+            padding: 12px 25px;
+            background: rgba(100, 255, 218, 0.1);
+            border: 2px solid var(--accent);
+            color: var(--accent);
+            text-decoration: none;
+            font-size: 14px;
+            transition: all 0.3s;
+        }
+
+        .github-cta:hover {
+            background: rgba(100, 255, 218, 0.2);
+            transform: translateY(-2px);
+        }
+
         @media (max-width: 768px) {
             .hero h1 {
                 font-size: 50px;
@@ -484,9 +519,9 @@
         <div class="hero-content">
             <h1>Youssef_Obeid</h1>
             <p class="description">
-                <span class="terminal-prefix">></span> AI Engineer specializing in Machine Learning & Natural Language Processing. 
-                Currently exploring Large Language Models and building intelligent systems that transform data into insights. 
-                Based in Tripoli, Lebanon.
+                <span class="terminal-prefix">></span> AI Engineer specializing in Machine Learning, NLP & Large Language Models. 
+                Building intelligent systems with RAG architectures, vector databases, and cutting-edge AI technologies. 
+                Transforming complex data into actionable insights. Based in Tripoli, Lebanon.
             </p>
             <a href="#contact" class="cta-button">[ Get In Touch ]</a>
         </div>
@@ -500,15 +535,24 @@
             <div class="code-line">        self.name = <span class="code-string">"Youssef Obeid"</span></div>
             <div class="code-line">        self.role = <span class="code-string">"AI Engineer"</span></div>
             <div class="code-line">        self.education = <span class="code-string">"BSc Computer Science @ Rafik Hariri University"</span></div>
-            <div class="code-line">        self.focus = [<span class="code-string">"Machine Learning"</span>, <span class="code-string">"NLP"</span>, <span class="code-string">"LLMs"</span>, <span class="code-string">"Data Science"</span>]</div>
+            <div class="code-line">        self.focus = [<span class="code-string">"LLMs"</span>, <span class="code-string">"RAG Systems"</span>, <span class="code-string">"NLP"</span>, <span class="code-string">"ML"</span>]</div>
+            <div class="code-line">        self.expertise = [<span class="code-string">"Vector Databases"</span>, <span class="code-string">"Embeddings"</span>, <span class="code-string">"Predictive Modeling"</span>]</div>
             <div class="code-line">        self.languages = [<span class="code-string">"Arabic (Native)"</span>, <span class="code-string">"English"</span>, <span class="code-string">"French"</span>]</div>
         </div>
-        <p style="color: var(--text-light); font-size: 18px; line-height: 1.8;">
-            I'm a Computer Science student passionate about artificial intelligence and its real-world applications. 
-            With expertise in supervised and unsupervised learning, I've developed multiple ML models using cutting-edge 
-            algorithms. Currently expanding my knowledge in Large Language Models and seeking opportunities as a Junior AI Engineer 
-            to contribute to innovative AI solutions.
+        <p style="color: var(--text-light); font-size: 18px; line-height: 1.8; margin-bottom: 20px;">
+            I'm a Computer Science student passionate about pushing the boundaries of artificial intelligence. With hands-on experience in 
+            Large Language Models, Retrieval-Augmented Generation (RAG) systems, and vector databases, I build intelligent solutions that 
+            solve real-world problems. My expertise spans supervised and unsupervised learning, advanced NLP pipelines, and scalable AI architectures 
+            using tools like LangChain, FAISS, and HuggingFace Transformers.
         </p>
+        <p style="color: var(--text-light); font-size: 18px; line-height: 1.8;">
+            Currently seeking Junior AI Engineer positions where I can contribute to innovative AI solutions and continue expanding my expertise 
+            in cutting-edge technologies.
+        </p>
+        <a href="https://github.com/obeidYoussef" target="_blank" class="github-cta">
+            <i class="fab fa-github"></i>
+            View All Projects on GitHub
+        </a>
     </section>
 
     <section id="skills">
@@ -517,6 +561,8 @@
             <div class="skill-group">
                 <h4>// Machine Learning & AI</h4>
                 <div class="skill-tags">
+                    <span class="skill-tag">Large Language Models</span>
+                    <span class="skill-tag">RAG Systems</span>
                     <span class="skill-tag">Supervised Learning</span>
                     <span class="skill-tag">Unsupervised Learning</span>
                     <span class="skill-tag">Random Forest</span>
@@ -524,40 +570,45 @@
                     <span class="skill-tag">KMeans</span>
                     <span class="skill-tag">DBSCAN</span>
                     <span class="skill-tag">NLP</span>
-                    <span class="skill-tag">LLMs</span>
+                    <span class="skill-tag">Embeddings</span>
                     <span class="skill-tag">TF-IDF</span>
                     <span class="skill-tag">PCA</span>
                 </div>
             </div>
             <div class="skill-group">
-                <h4>// Data Science</h4>
+                <h4>// AI Frameworks & Tools</h4>
+                <div class="skill-tags">
+                    <span class="skill-tag">LangChain</span>
+                    <span class="skill-tag">HuggingFace</span>
+                    <span class="skill-tag">FAISS</span>
+                    <span class="skill-tag">Chroma</span>
+                    <span class="skill-tag">PyTorch</span>
+                    <span class="skill-tag">Scikit-learn</span>
+                    <span class="skill-tag">Pandas</span>
+                    <span class="skill-tag">NumPy</span>
+                </div>
+            </div>
+            <div class="skill-group">
+                <h4>// Data Science & Engineering</h4>
                 <div class="skill-tags">
                     <span class="skill-tag">EDA</span>
                     <span class="skill-tag">Data Visualization</span>
                     <span class="skill-tag">Statistical Analysis</span>
+                    <span class="skill-tag">Feature Engineering</span>
+                    <span class="skill-tag">Hyperparameter Tuning</span>
+                    <span class="skill-tag">Model Optimization</span>
                     <span class="skill-tag">Matplotlib</span>
                     <span class="skill-tag">Seaborn</span>
-                    <span class="skill-tag">Feature Engineering</span>
-                    <span class="skill-tag">Model Tuning</span>
                 </div>
             </div>
             <div class="skill-group">
-                <h4>// Programming Languages</h4>
+                <h4>// Programming & Development</h4>
                 <div class="skill-tags">
                     <span class="skill-tag">Python</span>
                     <span class="skill-tag">SQL</span>
                     <span class="skill-tag">C++</span>
                     <span class="skill-tag">JavaScript</span>
                     <span class="skill-tag">PHP</span>
-                    <span class="skill-tag">Kotlin</span>
-                </div>
-            </div>
-            <div class="skill-group">
-                <h4>// Frameworks & Tools</h4>
-                <div class="skill-tags">
-                    <span class="skill-tag">Pandas</span>
-                    <span class="skill-tag">NumPy</span>
-                    <span class="skill-tag">Scikit-learn</span>
                     <span class="skill-tag">React.js</span>
                     <span class="skill-tag">Laravel</span>
                     <span class="skill-tag">Git</span>
@@ -570,53 +621,99 @@
         <h2 class="section-title">featured_projects</h2>
         <div class="grid">
             <div class="card">
-                <h3>01. Titanic Survival Prediction</h3>
+                <h3>01. RAG Resume Screening System</h3>
                 <p style="color: var(--text); margin: 15px 0;">
-                    Machine learning classification model predicting passenger survival using multiple algorithms.
+                    AI-powered resume screening with Retrieval-Augmented Generation for intelligent candidate insights and natural language queries.
                 </p>
                 <ul>
-                    <li>Comprehensive EDA and data visualization</li>
-                    <li>Logistic Regression, Random Forest, XGBoost</li>
-                    <li>Survival analysis by demographics</li>
-                    <li>Model performance comparison</li>
+                    <li>Built RAG pipeline with LangChain & LLMs</li>
+                    <li>Implemented vector search using FAISS & Chroma</li>
+                    <li>HuggingFace & OpenAI embeddings integration</li>
+                    <li>Automated candidate Q&A with source traceability</li>
                 </ul>
+                <div class="tech-stack">
+                    <span class="tech-badge">LangChain</span>
+                    <span class="tech-badge">FAISS</span>
+                    <span class="tech-badge">Chroma</span>
+                    <span class="tech-badge">HuggingFace</span>
+                    <span class="tech-badge">RAG</span>
+                </div>
             </div>
             <div class="card">
-                <h3>02. Car Sales Price Prediction</h3>
+                <h3>02. News Stories Clustering</h3>
                 <p style="color: var(--text); margin: 15px 0;">
-                    Regression analysis system for accurate vehicle pricing predictions.
+                    NLP-powered unsupervised learning for automated news categorization with advanced text processing pipelines.
+                </p>
+                <ul>
+                    <li>Text preprocessing & tokenization pipeline</li>
+                    <li>TF-IDF feature extraction</li>
+                    <li>KMeans clustering with PCA visualization</li>
+                    <li>Topic extraction & silhouette scoring</li>
+                </ul>
+                <div class="tech-stack">
+                    <span class="tech-badge">NLP</span>
+                    <span class="tech-badge">KMeans</span>
+                    <span class="tech-badge">TF-IDF</span>
+                    <span class="tech-badge">PCA</span>
+                </div>
+            </div>
+            <div class="card">
+                <h3>03. Titanic Survival Prediction</h3>
+                <p style="color: var(--text); margin: 15px 0;">
+                    Comprehensive ML classification system with multiple algorithms and in-depth survival pattern analysis.
+                </p>
+                <ul>
+                    <li>Extensive EDA & feature engineering</li>
+                    <li>Logistic Regression, Random Forest, XGBoost</li>
+                    <li>Hyperparameter tuning & cross-validation</li>
+                    <li>Comparative model performance analysis</li>
+                </ul>
+                <div class="tech-stack">
+                    <span class="tech-badge">Classification</span>
+                    <span class="tech-badge">XGBoost</span>
+                    <span class="tech-badge">EDA</span>
+                </div>
+            </div>
+            <div class="card">
+                <h3>04. Car Sales Price Prediction</h3>
+                <p style="color: var(--text); margin: 15px 0;">
+                    Advanced regression system for accurate vehicle pricing with optimized model performance.
                 </p>
                 <ul>
                     <li>Feature engineering & correlation analysis</li>
-                    <li>Ridge, SVR, Random Forest Regressor</li>
-                    <li>Hyperparameter optimization</li>
-                    <li>High predictive accuracy achieved</li>
+                    <li>Ridge Regression, SVR, Random Forest</li>
+                    <li>Hyperparameter optimization pipeline</li>
+                    <li>High-accuracy predictive modeling</li>
                 </ul>
+                <div class="tech-stack">
+                    <span class="tech-badge">Regression</span>
+                    <span class="tech-badge">SVR</span>
+                    <span class="tech-badge">Optimization</span>
+                </div>
             </div>
             <div class="card">
-                <h3>03. News Stories Clustering</h3>
+                <h3>05. Advanced Clustering Analysis</h3>
                 <p style="color: var(--text); margin: 15px 0;">
-                    NLP-powered unsupervised learning for automated news categorization.
-                </p>
-                <ul>
-                    <li>Text preprocessing pipeline</li>
-                    <li>TF-IDF feature extraction</li>
-                    <li>KMeans clustering with PCA visualization</li>
-                    <li>Topic extraction & quality metrics</li>
-                </ul>
-            </div>
-            <div class="card">
-                <h3>04. Advanced Clustering Analysis</h3>
-                <p style="color: var(--text); margin: 15px 0;">
-                    Comparative study of clustering algorithms and behavioral patterns.
+                    Comparative study of clustering algorithms with detailed behavioral pattern analysis and visualization.
                 </p>
                 <ul>
                     <li>DBSCAN vs KMeans implementation</li>
-                    <li>Noise & border point analysis</li>
-                    <li>Silhouette scoring</li>
-                    <li>Visual algorithm comparison</li>
+                    <li>Noise & border point detection</li>
+                    <li>Silhouette coefficient evaluation</li>
+                    <li>Interactive algorithm comparison</li>
                 </ul>
+                <div class="tech-stack">
+                    <span class="tech-badge">DBSCAN</span>
+                    <span class="tech-badge">Clustering</span>
+                    <span class="tech-badge">Analysis</span>
+                </div>
             </div>
+        </div>
+        <div style="text-align: center; margin-top: 50px;">
+            <a href="https://github.com/obeidYoussef" target="_blank" class="github-cta">
+                <i class="fab fa-github"></i>
+                Explore More Projects on GitHub
+            </a>
         </div>
     </section>
 
@@ -651,8 +748,8 @@
     <section id="contact">
         <h2 class="section-title">get_in_touch</h2>
         <p style="color: var(--text-light); font-size: 18px; margin-bottom: 30px;">
-            I'm currently seeking Junior AI Engineer positions and excited about opportunities in machine learning, 
-            NLP, and data science. Let's build something innovative together.
+            I'm actively seeking Junior AI Engineer positions and excited about opportunities in LLMs, RAG systems, 
+            NLP, and data science. Let's build innovative AI solutions together. Check out my GitHub for complete project portfolios and code samples.
         </p>
         <div class="contact-grid">
             <div class="contact-item">
@@ -676,11 +773,11 @@
                     <a href="https://www.linkedin.com/in/yousef-obeid" target="_blank">linkedin.com/in/yousef-obeid</a>
                 </div>
             </div>
-            <div class="contact-item">
+            <div class="contact-item" style="border: 2px solid var(--accent);">
                 <i class="fab fa-github"></i>
                 <div>
-                    <strong style="color: var(--white);">GitHub</strong><br>
-                    <a href="https://github.com/obeidYoussef" target="_blank">github.com/obeidYoussef</a>
+                    <strong style="color: var(--white);">GitHub - View All Projects</strong><br>
+                    <a href="https://github.com/obeidYoussef" target="_blank" style="color: var(--accent); font-weight: bold;">github.com/obeidYoussef</a>
                 </div>
             </div>
         </div>
@@ -688,9 +785,9 @@
 
     <footer class="footer">
         <div class="social-links">
-            <a href="https://github.com/obeidYoussef" target="_blank"><i class="fab fa-github"></i></a>
-            <a href="https://www.linkedin.com/in/yousef-obeid" target="_blank"><i class="fab fa-linkedin"></i></a>
-            <a href="mailto:Youssefobeid931@gmail.com"><i class="fas fa-envelope"></i></a>
+            <a href="https://github.com/obeidYoussef" target="_blank" title="GitHub - All Projects"><i class="fab fa-github"></i></a>
+            <a href="https://www.linkedin.com/in/yousef-obeid" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+            <a href="mailto:Youssefobeid931@gmail.com" title="Email"><i class="fas fa-envelope"></i></a>
         </div>
         <p>Designed & Built by Youssef Obeid</p>
         <p style="margin-top: 10px; opacity: 0.7;">© 2025 All rights reserved</p>
