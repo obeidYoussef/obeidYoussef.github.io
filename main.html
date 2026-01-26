@@ -614,6 +614,7 @@
                     <span class="skill-tag">PHP</span>
                     <span class="skill-tag">React.js</span>
                     <span class="skill-tag">Laravel</span>
+                    <span class="skill-tag">FastAPI</span>
                     <span class="skill-tag">Git</span>
                 </div>
             </div>
@@ -695,7 +696,43 @@
                 </div>
             </div>
             <div class="card">
-                <h3>05. Advanced Clustering Analysis</h3>
+                <h3>05. CrewAI Multi-Agent Travel Assistant</h3>
+                <p style="color: var(--text); margin: 15px 0;">
+                    Multi-agent AI system coordinating flight, hotel, and itinerary planning through intelligent agent collaboration.
+                </p>
+                <ul>
+                    <li>Developed coordinator agent for workflow orchestration</li>
+                    <li>Multi-agent communication for travel recommendations</li>
+                    <li>User preference analysis and personalization</li>
+                    <li>Generated realistic travel plans with dummy data</li>
+                </ul>
+                <div class="tech-stack">
+                    <span class="tech-badge">CrewAI</span>
+                    <span class="tech-badge">Multi-Agent</span>
+                    <span class="tech-badge">LLM</span>
+                    <span class="tech-badge">Python</span>
+                </div>
+            </div>
+            <div class="card">
+                <h3>06. AI-Powered Teaching Assistant</h3>
+                <p style="color: var(--text); margin: 15px 0;">
+                    Intelligent chatbot providing personalized academic support with context-aware responses and educational guidance.
+                </p>
+                <ul>
+                    <li>Built conversational AI for student tutoring</li>
+                    <li>Context-aware question answering system</li>
+                    <li>FastAPI backend for real-time interactions</li>
+                    <li>Personalized learning recommendations</li>
+                </ul>
+                <div class="tech-stack">
+                    <span class="tech-badge">LLM</span>
+                    <span class="tech-badge">FastAPI</span>
+                    <span class="tech-badge">NLP</span>
+                    <span class="tech-badge">Chatbot</span>
+                </div>
+            </div>
+            <div class="card">
+                <h3>07. Advanced Clustering Analysis</h3>
                 <p style="color: var(--text); margin: 15px 0;">
                     Comparative study of clustering algorithms with detailed behavioral pattern analysis and visualization.
                 </p>
@@ -803,19 +840,17 @@
 
     let mouseX = 0, mouseY = 0;
     let outlineX = 0, outlineY = 0;
-    const delay = 0.15; // lower = faster follow, higher = slower
+    const delay = 0.15;
 
     window.addEventListener('mousemove', (e) => {
         mouseX = e.clientX;
         mouseY = e.clientY;
 
-        // dot follows mouse exactly
         cursorDot.style.left = mouseX + 'px';
         cursorDot.style.top = mouseY + 'px';
     });
 
     function animateOutline() {
-        // smooth follow using linear interpolation
         outlineX += (mouseX - outlineX) * delay;
         outlineY += (mouseY - outlineY) * delay;
 
@@ -825,7 +860,6 @@
         requestAnimationFrame(animateOutline);
     }
 
-    // start outline animation
     animateOutline();
 
     // Matrix background effect
