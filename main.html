@@ -5,10 +5,30 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Youssef Obeid - AI Engineer</title>
     
-    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,
 <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'>
-  <rect width='100' height='100' fill='%230a192f'/>
-  <text x='50%' y='55%' font-size='60' text-anchor='middle' fill='%2364ffda' font-family='monospace' font-weight='bold'>&gt;_</text>
+  <rect width='100' height='100' rx='18' fill='%230a192f'/>
+  
+  <!-- Glow effect -->
+  <defs>
+    <filter id='glow'>
+      <feGaussianBlur stdDeviation='3.5' result='coloredBlur'/>
+      <feMerge>
+        <feMergeNode in='coloredBlur'/>
+        <feMergeNode in='SourceGraphic'/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <!-- Terminal prompt -->
+  <text x='32' y='58' font-size='42' fill='%2364ffda'
+        font-family='monospace' font-weight='bold'
+        filter='url(%23glow)'>&gt;</text>
+
+  <!-- Cursor block -->
+  <rect x='52' y='38' width='18' height='28'
+        fill='%2364ffda'
+        filter='url(%23glow)'/>
 </svg>">
 
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
