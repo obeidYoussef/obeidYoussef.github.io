@@ -178,6 +178,7 @@ nav{
 .ticker-item{font-family:var(--font-mono);font-size:10px;letter-spacing:0.18em;text-transform:uppercase;color:rgba(0,255,136,0.4);padding:0 28px;display:flex;align-items:center;gap:14px;}
 .ticker-item .sep{color:var(--green);font-size:8px;opacity:0.8;}
 @keyframes ticker{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+@keyframes wipBlink{0%,100%{opacity:1;}50%{opacity:0.25;}}
 
 /* ══ SECTION ══ */
 .section{position:relative;z-index:1;padding:110px 48px;max-width:1280px;margin:0 auto;}
@@ -225,6 +226,7 @@ nav{
 .proj-num{font-family:var(--font-mono);font-size:9px;color:var(--green);letter-spacing:0.2em;}
 .proj-type-badge{font-family:var(--font-mono);font-size:8px;padding:2px 8px;letter-spacing:0.15em;text-transform:uppercase;border:1px solid var(--border);color:var(--muted);}
 .proj-type-badge.feat{border-color:rgba(0,255,136,0.4);color:var(--green);background:var(--green-dim);}
+.proj-type-badge.feat-amber{border-color:rgba(255,170,0,0.5);color:var(--amber);background:rgba(255,170,0,0.08);}
 .proj-body{padding:24px;flex:1;display:flex;flex-direction:column;}
 .proj-title{font-family:var(--font-display);font-size:15px;font-weight:700;color:var(--white);letter-spacing:0.04em;margin-bottom:12px;line-height:1.25;}
 .proj-desc{font-size:13px;color:rgba(0,255,136,0.55);line-height:1.8;margin-bottom:18px;flex:1;}
@@ -235,15 +237,26 @@ nav{
 .pbadge{font-family:var(--font-mono);font-size:9px;padding:3px 9px;letter-spacing:0.06em;background:var(--green-dim);border:1px solid rgba(0,255,136,0.25);color:var(--green);}
 .pbadge.mag{background:var(--mag-dim);border-color:rgba(255,0,255,0.2);color:var(--magenta);}
 .pbadge.cyan{background:var(--cyan-dim);border-color:rgba(0,229,255,0.2);color:var(--cyan);}
+.pbadge.amber{background:rgba(255,170,0,0.08);border-color:rgba(255,170,0,0.3);color:var(--amber);}
 .proj-viz{border-left:1px solid var(--border);padding:24px 20px;display:flex;flex-direction:column;gap:20px;background:rgba(0,255,136,0.02);}
 .viz-label{font-family:var(--font-mono);font-size:9px;color:var(--muted);letter-spacing:0.2em;text-transform:uppercase;margin-bottom:8px;}
 .arch-line{display:flex;align-items:center;gap:8px;font-family:var(--font-mono);font-size:10px;color:rgba(0,255,136,0.5);}
 .arch-box{font-size:9px;padding:4px 10px;background:var(--green-dim);border:1px solid var(--border);color:var(--green);white-space:nowrap;}
+.arch-box.amber{background:rgba(255,170,0,0.08);border-color:rgba(255,170,0,0.3);color:var(--amber);}
+.arch-box.mag{background:var(--mag-dim);border-color:rgba(255,0,255,0.2);color:var(--magenta);}
+.arch-box.cyan{background:var(--cyan-dim);border-color:rgba(0,229,255,0.2);color:var(--cyan);}
 .arch-arrow{color:var(--green);font-size:10px;}
 .conf-bar{margin:4px 0;}
 .conf-bar-label{display:flex;justify-content:space-between;font-family:var(--font-mono);font-size:9px;color:var(--muted);margin-bottom:4px;}
 .conf-bar-track{height:3px;background:rgba(0,255,136,0.08);}
 .conf-bar-fill{height:100%;background:linear-gradient(90deg,var(--green),var(--cyan));}
+.conf-bar-fill.amber{background:linear-gradient(90deg,var(--amber),var(--green));}
+
+/* ══ NEW: Nutrition RAG metrics table ══ */
+.rag-metrics-table{width:100%;border-collapse:collapse;font-family:var(--font-mono);font-size:9px;}
+.rag-metrics-table td{padding:5px 8px;border-bottom:1px solid var(--border2);color:rgba(0,255,136,0.55);}
+.rag-metrics-table td:first-child{color:var(--muted);letter-spacing:0.1em;text-transform:uppercase;}
+.rag-metrics-table td:last-child{color:var(--green);text-align:right;}
 
 /* ══ EXPERIENCE ══ */
 .exp-grid{display:grid;grid-template-columns:1fr 1fr;gap:22px;}
@@ -378,7 +391,7 @@ footer{position:relative;z-index:1;border-top:1px solid var(--border);padding:32
     <div class="metric-card">
       <div class="metric-label"><i class="fas fa-chart-bar"></i> Performance Metrics</div>
       <div class="stats-row">
-        <div class="stat-box"><div class="stat-num">7<span style="font-size:16px">+</span></div><div class="stat-lbl">AI Projects</div></div>
+        <div class="stat-box"><div class="stat-num">8<span style="font-size:16px">+</span></div><div class="stat-lbl">AI Projects</div></div>
         <div class="stat-box"><div class="stat-num">4<span style="font-size:16px">y</span></div><div class="stat-lbl">Teaching</div></div>
         <div class="stat-box"><div class="stat-num">3<span style="font-size:16px">+</span></div><div class="stat-lbl">Languages</div></div>
       </div>
@@ -413,7 +426,7 @@ footer{position:relative;z-index:1;border-top:1px solid var(--border);padding:32
     <span class="ticker-item">NLP Pipelines <span class="sep">◆</span></span>
     <span class="ticker-item">Embedding Space <span class="sep">◆</span></span>
     <span class="ticker-item">LangChain · CrewAI · HuggingFace <span class="sep">◆</span></span>
-    <span class="ticker-item">FAISS · Chroma · PyTorch <span class="sep">◆</span></span>
+    <span class="ticker-item">FAISS · Chroma · pgvector · PyTorch <span class="sep">◆</span></span>
     <span class="ticker-item">Large Language Models <span class="sep">◆</span></span>
     <span class="ticker-item">Retrieval-Augmented Generation <span class="sep">◆</span></span>
     <span class="ticker-item">Multi-Agent Systems <span class="sep">◆</span></span>
@@ -425,7 +438,7 @@ footer{position:relative;z-index:1;border-top:1px solid var(--border);padding:32
     <span class="ticker-item">NLP Pipelines <span class="sep">◆</span></span>
     <span class="ticker-item">Embedding Space <span class="sep">◆</span></span>
     <span class="ticker-item">LangChain · CrewAI · HuggingFace <span class="sep">◆</span></span>
-    <span class="ticker-item">FAISS · Chroma · PyTorch <span class="sep">◆</span></span>
+    <span class="ticker-item">FAISS · Chroma · pgvector · PyTorch <span class="sep">◆</span></span>
   </div>
 </div>
 
@@ -491,7 +504,7 @@ footer{position:relative;z-index:1;border-top:1px solid var(--border);padding:32
     </div>
     <div class="skill-card">
       <div class="skill-icon-row"><div class="skill-icon mag"><i class="fas fa-comment-dots"></i></div><div><div class="skill-layer">Layer 02</div><div class="skill-name">NLP &amp; LLM Stack</div></div></div>
-      <div class="skill-tags"><span class="stag">Text Preprocessing</span><span class="stag">Tokenization</span><span class="stag">Lemmatization</span><span class="stag">TF-IDF</span><span class="stag">Embeddings</span><span class="stag">Semantic Search</span><span class="stag">Transformers</span><span class="stag">LangChain</span><span class="stag">HuggingFace</span><span class="stag">FAISS</span><span class="stag">Chroma</span><span class="stag">CrewAI</span><span class="stag">Vector Databases</span><span class="stag">MCP Integration</span></div>
+      <div class="skill-tags"><span class="stag">Text Preprocessing</span><span class="stag">Tokenization</span><span class="stag">Lemmatization</span><span class="stag">TF-IDF</span><span class="stag">Embeddings</span><span class="stag">Semantic Search</span><span class="stag">Transformers</span><span class="stag">LangChain</span><span class="stag">HuggingFace</span><span class="stag">FAISS</span><span class="stag">Chroma</span><span class="stag">CrewAI</span><span class="stag">Vector Databases</span><span class="stag">MCP Integration</span><span class="stag">pgvector</span><span class="stag">BGE-M3</span></div>
     </div>
     <div class="skill-card">
       <div class="skill-icon-row"><div class="skill-icon cyan"><i class="fas fa-chart-line"></i></div><div><div class="skill-layer">Layer 03</div><div class="skill-name">Data Science</div></div></div>
@@ -499,7 +512,7 @@ footer{position:relative;z-index:1;border-top:1px solid var(--border);padding:32
     </div>
     <div class="skill-card">
       <div class="skill-icon-row"><div class="skill-icon"><i class="fas fa-server"></i></div><div><div class="skill-layer">Layer 04</div><div class="skill-name">Backend &amp; DevOps</div></div></div>
-      <div class="skill-tags"><span class="stag">Python</span><span class="stag">FastAPI</span><span class="stag">RESTful APIs</span><span class="stag">PostgreSQL</span><span class="stag">SQL</span><span class="stag">Docker</span><span class="stag">Git</span><span class="stag">System Design</span><span class="stag">PHP</span><span class="stag">Laravel</span></div>
+      <div class="skill-tags"><span class="stag">Python</span><span class="stag">FastAPI</span><span class="stag">RESTful APIs</span><span class="stag">PostgreSQL</span><span class="stag">SQL</span><span class="stag">Docker</span><span class="stag">Git</span><span class="stag">System Design</span><span class="stag">SQLAlchemy</span><span class="stag">Alembic</span><span class="stag">Nginx</span><span class="stag">PHP</span><span class="stag">Laravel</span></div>
     </div>
     <div class="skill-card">
       <div class="skill-icon-row"><div class="skill-icon mag"><i class="fas fa-code"></i></div><div><div class="skill-layer">Layer 05</div><div class="skill-name">Web Development</div></div></div>
@@ -522,7 +535,83 @@ footer{position:relative;z-index:1;border-top:1px solid var(--border);padding:32
     <div class="sec-line"></div>
   </div>
   <div class="projects-grid">
-    <!-- FEATURED -->
+
+    <!-- ══ NEW: NUTRITION RAG API — FEATURED HERO CARD ══ -->
+    <div class="proj-card hero-proj" style="border-color:rgba(255,170,0,0.3);box-shadow:0 0 40px rgba(255,170,0,0.04);">
+      <div style="display:flex;flex-direction:column;">
+        <div class="proj-header" style="background:rgba(255,170,0,0.05);border-bottom-color:rgba(255,170,0,0.2);">
+          <span class="proj-num" style="color:var(--amber);">// OUTPUT_000</span>
+          <div style="display:flex;align-items:center;gap:8px;">
+            <span class="proj-type-badge feat-amber">⭐ Flagship · Full-Stack RAG API</span>
+            <span style="font-family:var(--font-mono);font-size:8px;padding:2px 9px;letter-spacing:0.15em;text-transform:uppercase;border:1px solid rgba(255,80,80,0.5);color:#ff5555;background:rgba(255,80,80,0.08);animation:wipBlink 2s step-end infinite;">⚠ WIP</span>
+          </div>
+        </div>
+        <div class="proj-body">
+          <div class="proj-title">Nutrition RAG API<br><span style="font-size:11px;color:var(--amber);font-family:var(--font-mono);font-weight:400;letter-spacing:0.1em;">Production-Grade Knowledge Management System</span></div>
+          <div style="display:inline-flex;align-items:center;gap:8px;font-family:var(--font-mono);font-size:10px;padding:6px 12px;margin-bottom:16px;border:1px dashed rgba(255,80,80,0.4);color:#ff7070;background:rgba(255,80,80,0.06);letter-spacing:0.08em;">
+            <span style="width:7px;height:7px;border-radius:50%;background:#ff5555;box-shadow:0 0 6px #ff5555;flex-shrink:0;animation:wipBlink 1.5s step-end infinite;"></span>
+            STATUS: WORK IN PROGRESS — API validation, Alembic migrations &amp; database integration pending verification
+          </div>
+          <p class="proj-desc">End-to-end AI-powered REST API for nutrition science knowledge management — transforming 1,000+ page textbooks into a queryable, streaming, source-cited knowledge base with a multi-agent pipeline, vector search, and Gemini Vision extraction.</p>
+          <ul class="proj-bullets">
+            <li>Architected 19-endpoint FastAPI service with async/await, streaming SSE chat, session management, and background job processing for large PDF ingestion</li>
+            <li>Built 3-agent AI pipeline: RouterAgent (intent classification) → QueryRewriter (conversation-aware reformulation) → RAGSupervisorAgent (retrieval + generation)</li>
+            <li>Engineered multi-modal PDF extraction with Gemini 2.0 Flash Vision — auto-classifying tables, charts, diagrams and achieving 90%+ table reconstruction accuracy</li>
+            <li>Designed pgvector + HNSW index for sub-100ms semantic search across 10,000+ BGE-M3 (1024-dim) document chunks with cosine similarity ranking</li>
+            <li>Containerized full stack with Docker Compose: PostgreSQL + pgvector, Nginx reverse proxy, SSL/TLS, health checks, and Alembic migration management</li>
+            <li>Integrated LangSmith observability, Groq (Llama 3.3 70B) for generation, and perceptual image deduplication — 46 files, ~8,500+ LOC delivered in ~3 days</li>
+          </ul>
+          <div class="proj-stack">
+            <span class="pbadge amber">FastAPI</span>
+            <span class="pbadge amber">PostgreSQL</span>
+            <span class="pbadge amber">pgvector</span>
+            <span class="pbadge">Groq LLM</span>
+            <span class="pbadge">Llama 3.3 70B</span>
+            <span class="pbadge mag">Gemini Vision</span>
+            <span class="pbadge mag">BGE-M3</span>
+            <span class="pbadge cyan">SQLAlchemy 2.0</span>
+            <span class="pbadge cyan">Alembic</span>
+            <span class="pbadge">Docker</span>
+            <span class="pbadge">Nginx</span>
+            <span class="pbadge">PyMuPDF</span>
+            <span class="pbadge">LangSmith</span>
+          </div>
+        </div>
+      </div>
+      <div class="proj-viz" style="border-left-color:rgba(255,170,0,0.2);background:rgba(255,170,0,0.02);">
+        <div>
+          <div class="viz-label" style="color:rgba(255,170,0,0.5);">// Multi-Agent Pipeline</div>
+          <div class="arch-line"><span class="arch-box amber">PDF Upload</span><span class="arch-arrow">→</span><span class="arch-box amber">Gemini Vision</span></div>
+          <div class="arch-line" style="padding-left:20px;margin:2px 0;"><span style="color:rgba(255,170,0,0.5);font-size:10px;">↓ chunks + embeddings</span></div>
+          <div class="arch-line"><span class="arch-box amber">pgvector HNSW</span></div>
+          <div class="arch-line" style="padding-left:20px;margin:2px 0;"><span style="color:rgba(255,170,0,0.5);font-size:10px;">↓ user query</span></div>
+          <div class="arch-line"><span class="arch-box">RouterAgent</span><span class="arch-arrow">→</span><span class="arch-box">QueryRewriter</span></div>
+          <div class="arch-line" style="padding-left:20px;margin:2px 0;"><span style="color:rgba(0,255,136,0.4);font-size:10px;">↓ retrieve top-k chunks</span></div>
+          <div class="arch-line"><span class="arch-box mag">RAGSupervisor</span><span class="arch-arrow">→</span><span class="arch-box cyan">SSE Stream</span></div>
+        </div>
+        <div>
+          <div class="viz-label" style="color:rgba(255,170,0,0.5);">// System Benchmarks</div>
+          <div class="conf-bar"><div class="conf-bar-label"><span>Answer Accuracy</span><span style="color:var(--amber)">85%+</span></div><div class="conf-bar-track"><div class="conf-bar-fill amber" style="width:85%"></div></div></div>
+          <div class="conf-bar"><div class="conf-bar-label"><span>Table Reconstruction</span><span style="color:var(--amber)">90%+</span></div><div class="conf-bar-track"><div class="conf-bar-fill amber" style="width:90%"></div></div></div>
+          <div class="conf-bar"><div class="conf-bar-label"><span>Vision Classification</span><span style="color:var(--amber)">95%+</span></div><div class="conf-bar-track"><div class="conf-bar-fill amber" style="width:95%"></div></div></div>
+          <div class="conf-bar"><div class="conf-bar-label"><span>Query Latency Reduction</span><span style="color:var(--amber)">60%</span></div><div class="conf-bar-track"><div class="conf-bar-fill amber" style="width:60%"></div></div></div>
+        </div>
+        <div>
+          <div class="viz-label" style="color:rgba(255,170,0,0.5);">// Project Scale</div>
+          <table class="rag-metrics-table">
+            <tr><td>API Endpoints</td><td>19</td></tr>
+            <tr><td>Lines of Code</td><td>~8,500+</td></tr>
+            <tr><td>Docker Services</td><td>3</td></tr>
+            <tr><td>DB Tables</td><td>4</td></tr>
+            <tr><td>Embedding Dims</td><td>1,024</td></tr>
+            <tr><td>Build Time</td><td>~3 days</td></tr>
+          </table>
+        </div>
+      </div>
+    </div>
+    <!-- ══ END NEW CARD ══ -->
+
+    <!-- EXISTING FEATURED -->
     <div class="proj-card hero-proj">
       <div style="display:flex;flex-direction:column;">
         <div class="proj-header"><span class="proj-num">// OUTPUT_002</span><span class="proj-type-badge feat">Featured · RAG</span></div>
