@@ -246,17 +246,11 @@ nav{
 .arch-box.mag{background:var(--mag-dim);border-color:rgba(255,0,255,0.2);color:var(--magenta);}
 .arch-box.cyan{background:var(--cyan-dim);border-color:rgba(0,229,255,0.2);color:var(--cyan);}
 .arch-arrow{color:var(--green);font-size:10px;}
-.conf-bar{margin:4px 0;}
-.conf-bar-label{display:flex;justify-content:space-between;font-family:var(--font-mono);font-size:9px;color:var(--muted);margin-bottom:4px;}
-.conf-bar-track{height:3px;background:rgba(0,255,136,0.08);}
-.conf-bar-fill{height:100%;background:linear-gradient(90deg,var(--green),var(--cyan));}
-.conf-bar-fill.amber{background:linear-gradient(90deg,var(--amber),var(--green));}
-
-/* ══ NEW: Nutrition RAG metrics table ══ */
-.rag-metrics-table{width:100%;border-collapse:collapse;font-family:var(--font-mono);font-size:9px;}
-.rag-metrics-table td{padding:5px 8px;border-bottom:1px solid var(--border2);color:rgba(0,255,136,0.55);}
-.rag-metrics-table td:first-child{color:var(--muted);letter-spacing:0.1em;text-transform:uppercase;}
-.rag-metrics-table td:last-child{color:var(--green);text-align:right;}
+.viz-note{font-family:var(--font-mono);font-size:9.5px;line-height:1.8;color:rgba(0,255,136,0.5);}
+.viz-note b{color:var(--green);font-weight:500;}
+.capa-list{list-style:none;}
+.capa-list li{font-family:var(--font-mono);font-size:9.5px;color:rgba(0,255,136,0.55);padding:4px 0 4px 15px;position:relative;line-height:1.6;}
+.capa-list li::before{content:'◆';position:absolute;left:0;color:var(--green);font-size:7px;top:6px;}
 
 /* ══ EXPERIENCE ══ */
 .exp-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:22px;}
@@ -274,6 +268,24 @@ nav{
 .exp-list li{font-size:13px;color:rgba(0,255,136,0.6);padding:7px 0 7px 20px;position:relative;border-bottom:1px solid rgba(0,255,136,0.04);}
 .exp-list li:last-child{border:none;}
 .exp-list li::before{content:'▸';position:absolute;left:0;color:var(--green);font-size:10px;}
+
+/* ══ FEATURED EXPERIENCE ══ */
+.exp-featured{grid-column:1/-1;border-color:rgba(0,255,136,0.35)!important;box-shadow:0 0 40px rgba(0,255,136,0.05);}
+.exp-featured .exp-card-header{background:rgba(0,255,136,0.05);display:flex;align-items:flex-end;justify-content:space-between;flex-wrap:wrap;gap:12px;}
+.exp-feat-badge{font-family:var(--font-mono);font-size:8px;padding:3px 10px;letter-spacing:0.18em;text-transform:uppercase;border:1px solid rgba(0,255,136,0.4);color:var(--green);background:var(--green-dim);align-self:center;}
+.exp-feat-intro{padding:18px 24px 4px;font-size:13px;color:rgba(0,255,136,0.6);line-height:1.8;}
+.exp-sub-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;padding:18px 24px 24px;}
+.exp-sub{background:rgba(0,255,136,0.02);border:1px solid var(--border2);padding:18px;display:flex;flex-direction:column;transition:all 0.25s;}
+.exp-sub:hover{border-color:var(--border);background:rgba(0,255,136,0.04);}
+.exp-sub-tag{font-family:var(--font-mono);font-size:8px;color:var(--green);letter-spacing:0.15em;text-transform:uppercase;margin-bottom:8px;}
+.exp-sub-tag.mag{color:var(--magenta);}
+.exp-sub-tag.cyan{color:var(--cyan);}
+.exp-sub-title{font-family:var(--font-display);font-size:12.5px;font-weight:700;color:var(--white);letter-spacing:0.03em;margin-bottom:12px;line-height:1.3;}
+.exp-sub ul{list-style:none;margin-bottom:14px;flex:1;}
+.exp-sub li{font-size:11.5px;color:rgba(0,255,136,0.58);padding:4px 0 4px 15px;position:relative;line-height:1.6;}
+.exp-sub li::before{content:'▹';position:absolute;left:0;color:var(--green);font-size:9px;top:5px;}
+.exp-sub-stack{display:flex;flex-wrap:wrap;gap:5px;margin-top:auto;}
+.exp-sub-stack .pbadge{font-size:8px;padding:2px 7px;}
 
 /* ══ CONTACT ══ */
 .contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:start;}
@@ -314,6 +326,7 @@ footer{position:relative;z-index:1;border-top:1px solid var(--border);padding:32
   .projects-grid{grid-template-columns:1fr;}
   .proj-card.hero-proj{grid-column:span 1;grid-template-columns:1fr;}
   .proj-viz{border-left:none;border-top:1px solid var(--border);}
+  .exp-sub-grid{grid-template-columns:1fr;}
   footer{flex-direction:column;gap:16px;padding:24px 20px;text-align:center;}
 }
 @media(max-width:600px){.skills-grid{grid-template-columns:1fr;}}
@@ -347,8 +360,8 @@ footer{position:relative;z-index:1;border-top:1px solid var(--border);padding:32
   <ul class="nav-links">
     <li><a href="#about"><i class="fas fa-id-badge"></i> Profile</a></li>
     <li><a href="#skills"><i class="fas fa-layer-group"></i> Layers</a></li>
-    <li><a href="#projects"><i class="fas fa-flask"></i> Outputs</a></li>
     <li><a href="#experience"><i class="fas fa-database"></i> Training</a></li>
+    <li><a href="#projects"><i class="fas fa-flask"></i> Outputs</a></li>
     <li><a href="#contact"><i class="fas fa-satellite-dish"></i> Connect</a></li>
   </ul>
   <div class="nav-status"><span class="status-dot"></span><span>INFERENCE READY</span></div>
@@ -366,7 +379,7 @@ footer{position:relative;z-index:1;border-top:1px solid var(--border);padding:32
         <div class="prompt-line">initialize_model("youssef_obeid") → loaded</div>
         <div class="hero-name">YOUSSEF<br><span class="glow">OBEID</span></div>
         <div class="hero-role">AI Engineer</div>
-        <p class="hero-desc">Building intelligent systems with RAG architectures, multi-agent AI, Model Context Protocol (MCP), and vector databases. Transforming raw data into reasoning engines — from LLM pipelines to production-grade FastAPI services.</p>
+        <p class="hero-desc">I build intelligent systems with RAG architectures, multi-agent pipelines, and LLM workflow automation — and I've shipped production AI agents on real customer platforms. From WhatsApp customer-service agents to nutrition knowledge assistants, I turn messy data into grounded, source-cited answers.</p>
         <div class="hero-tokens">
           <span><i class="fas fa-bolt" style="color:var(--green);font-size:10px;"></i> Tokens generated:</span>
           <span class="token-count" id="tkn">1,024</span>
@@ -383,28 +396,28 @@ footer{position:relative;z-index:1;border-top:1px solid var(--border);padding:32
     <div class="metric-card">
       <div class="metric-label"><i class="fas fa-crosshairs"></i> Core Focus Vectors</div>
       <div class="focus-chips">
-        <span class="chip">LLMs</span><span class="chip">RAG Systems</span><span class="chip">Multi-Agent AI</span><span class="chip">MCP</span>
+        <span class="chip">LLMs</span><span class="chip">RAG Systems</span><span class="chip">Multi-Agent AI</span><span class="chip">Agent Orchestration</span>
         <span class="chip mag">NLP</span><span class="chip mag">Vector Databases</span><span class="chip cyan">Embeddings</span>
-        <span class="chip">FastAPI</span><span class="chip cyan">Docker</span>
+        <span class="chip">FastAPI</span><span class="chip cyan">Dify · n8n</span>
       </div>
     </div>
     <div class="metric-card">
-      <div class="metric-label"><i class="fas fa-chart-bar"></i> Performance Metrics</div>
+      <div class="metric-label"><i class="fas fa-chart-bar"></i> Snapshot</div>
       <div class="stats-row">
-        <div class="stat-box"><div class="stat-num">8<span style="font-size:16px">+</span></div><div class="stat-lbl">AI Projects</div></div>
-        <div class="stat-box"><div class="stat-num">4<span style="font-size:16px">y</span></div><div class="stat-lbl">Teaching</div></div>
-        <div class="stat-box"><div class="stat-num">3<span style="font-size:16px">+</span></div><div class="stat-lbl">Languages</div></div>
+        <div class="stat-box"><div class="stat-num">3</div><div class="stat-lbl">Production Agents</div></div>
+        <div class="stat-box"><div class="stat-num">2</div><div class="stat-lbl">Internships</div></div>
+        <div class="stat-box"><div class="stat-num">3</div><div class="stat-lbl">Languages</div></div>
       </div>
     </div>
     <div class="metric-card">
-      <div class="metric-label"><i class="fas fa-graduation-cap"></i> Training Data</div>
+      <div class="metric-label"><i class="fas fa-graduation-cap"></i> Education</div>
       <div class="edu-row">
         <div class="edu-icon"><i class="fas fa-graduation-cap"></i></div>
-        <div><div class="edu-name">BSc Computer Science</div><div class="edu-sub">Rafik Hariri University · June 2025</div></div>
+        <div><div class="edu-name">BSc Computer Science</div><div class="edu-sub">Rafik Hariri University · Sep 2022 – Jun 2025</div></div>
       </div>
     </div>
     <div class="metric-card">
-      <div class="metric-label"><i class="fas fa-language"></i> Language Tokens</div>
+      <div class="metric-label"><i class="fas fa-language"></i> Languages</div>
       <div class="focus-chips">
         <span class="chip">Arabic — Native</span><span class="chip mag">English — Intermediate</span><span class="chip cyan">French — Basic</span>
       </div>
@@ -418,11 +431,11 @@ footer{position:relative;z-index:1;border-top:1px solid var(--border);padding:32
     <span class="ticker-item">Large Language Models <span class="sep">◆</span></span>
     <span class="ticker-item">Retrieval-Augmented Generation <span class="sep">◆</span></span>
     <span class="ticker-item">Multi-Agent Systems <span class="sep">◆</span></span>
-    <span class="ticker-item">Model Context Protocol <span class="sep">◆</span></span>
+    <span class="ticker-item">Agent Orchestration · Dify · n8n <span class="sep">◆</span></span>
     <span class="ticker-item">Vector Databases <span class="sep">◆</span></span>
     <span class="ticker-item">Semantic Search <span class="sep">◆</span></span>
     <span class="ticker-item">Transformer Architecture <span class="sep">◆</span></span>
-    <span class="ticker-item">Attention Mechanism <span class="sep">◆</span></span>
+    <span class="ticker-item">Hybrid Retrieval <span class="sep">◆</span></span>
     <span class="ticker-item">NLP Pipelines <span class="sep">◆</span></span>
     <span class="ticker-item">Embedding Space <span class="sep">◆</span></span>
     <span class="ticker-item">LangChain · CrewAI · HuggingFace <span class="sep">◆</span></span>
@@ -430,11 +443,11 @@ footer{position:relative;z-index:1;border-top:1px solid var(--border);padding:32
     <span class="ticker-item">Large Language Models <span class="sep">◆</span></span>
     <span class="ticker-item">Retrieval-Augmented Generation <span class="sep">◆</span></span>
     <span class="ticker-item">Multi-Agent Systems <span class="sep">◆</span></span>
-    <span class="ticker-item">Model Context Protocol <span class="sep">◆</span></span>
+    <span class="ticker-item">Agent Orchestration · Dify · n8n <span class="sep">◆</span></span>
     <span class="ticker-item">Vector Databases <span class="sep">◆</span></span>
     <span class="ticker-item">Semantic Search <span class="sep">◆</span></span>
     <span class="ticker-item">Transformer Architecture <span class="sep">◆</span></span>
-    <span class="ticker-item">Attention Mechanism <span class="sep">◆</span></span>
+    <span class="ticker-item">Hybrid Retrieval <span class="sep">◆</span></span>
     <span class="ticker-item">NLP Pipelines <span class="sep">◆</span></span>
     <span class="ticker-item">Embedding Space <span class="sep">◆</span></span>
     <span class="ticker-item">LangChain · CrewAI · HuggingFace <span class="sep">◆</span></span>
@@ -452,10 +465,10 @@ footer{position:relative;z-index:1;border-top:1px solid var(--border);padding:32
   </div>
   <div class="about-grid">
     <div class="about-text">
-      <p>AI-focused Computer Science graduate, passionate about pushing the boundaries of artificial intelligence.</p>
-      <p>With hands-on experience in Large Language Models, Retrieval-Augmented Generation (RAG) systems, multi-agent AI coordination, Model Context Protocol (MCP), and vector databases, I build intelligent solutions that solve real-world problems.</p>
-      <p>My expertise spans supervised and unsupervised learning, advanced NLP pipelines, predictive modeling, and scalable AI architectures using LangChain, CrewAI, FAISS, Chroma, FastAPI, Docker, HuggingFace Transformers, and PyTorch.</p>
-      <p>Currently seeking Junior AI Engineer positions to contribute to innovative AI solutions, intelligent search systems, and generative AI applications.</p>
+      <p>AI-focused Computer Science graduate, actively seeking an AI Engineering role.</p>
+      <p>I work across Large Language Models, Retrieval-Augmented Generation (RAG), multi-agent systems, and workflow-based agent orchestration. During my internship at Webspot I helped ship production AI agents — including a luxury-jewelry WhatsApp customer-service agent and a haircare chatbot — built on Dify workflows with hybrid retrieval, voice/image handling, and multilingual guardrails.</p>
+      <p>My toolkit spans supervised and unsupervised ML, NLP pipelines, and API development with LangChain, CrewAI, HuggingFace, FAISS, Chroma, Supabase/pgvector, FastAPI, Dify, and n8n. All of my featured personal projects were built independently as hands-on learning initiatives.</p>
+      <p>I care most about building AI that stays grounded, cites its sources, and holds up in real usage — not just in a notebook.</p>
       <div class="about-links">
         <a href="https://github.com/obeidYoussef" target="_blank" class="btn-ghost"><i class="fab fa-github"></i> GitHub Repo</a>
         <a href="#contact" class="btn-ghost"><i class="fas fa-satellite-dish"></i> Connect</a>
@@ -473,15 +486,15 @@ footer{position:relative;z-index:1;border-top:1px solid var(--border);padding:32
         <span class="line-num">4</span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="self">self</span>.role = <span class="str">"AI Engineer"</span><br>
         <span class="line-num">5</span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="self">self</span>.edu = <span class="str">"BSc CS @ RHU"</span><br>
         <span class="line-num">6</span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="self">self</span>.focus = [<br>
-        <span class="line-num">7</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="str">"LLMs"</span>, <span class="str">"RAG"</span>, <span class="str">"MCP"</span>,<br>
-        <span class="line-num">8</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="str">"Multi-Agent AI"</span>, <span class="str">"NLP"</span><br>
+        <span class="line-num">7</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="str">"LLMs"</span>, <span class="str">"RAG"</span>, <span class="str">"Agents"</span>,<br>
+        <span class="line-num">8</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="str">"Orchestration"</span>, <span class="str">"Automation"</span><br>
         <span class="line-num">9</span>&nbsp;&nbsp;&nbsp;&nbsp;]<br>
         <span class="line-num">10</span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="self">self</span>.tools = [<br>
         <span class="line-num">11</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="str">"LangChain"</span>, <span class="str">"CrewAI"</span>,<br>
-        <span class="line-num">12</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="str">"FAISS"</span>, <span class="str">"Chroma"</span>,<br>
-        <span class="line-num">13</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="str">"FastAPI"</span>, <span class="str">"Docker"</span><br>
+        <span class="line-num">12</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="str">"Dify"</span>, <span class="str">"Chroma"</span>,<br>
+        <span class="line-num">13</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="str">"FastAPI"</span>, <span class="str">"n8n"</span><br>
         <span class="line-num">14</span>&nbsp;&nbsp;&nbsp;&nbsp;]<br>
-        <span class="line-num">15</span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="cm"># seeking: junior AI engineer roles</span><br>
+        <span class="line-num">15</span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="cm"># seeking: AI engineer roles</span><br>
         <span class="line-num">16</span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="cm"># status: INFERENCE_READY ✓</span>
       </div>
     </div>
@@ -500,243 +513,129 @@ footer{position:relative;z-index:1;border-top:1px solid var(--border);padding:32
   <div class="skills-grid">
     <div class="skill-card">
       <div class="skill-icon-row"><div class="skill-icon"><i class="fas fa-brain"></i></div><div><div class="skill-layer">Layer 01</div><div class="skill-name">ML &amp; AI Core</div></div></div>
-      <div class="skill-tags"><span class="stag">Large Language Models</span><span class="stag">RAG Systems</span><span class="stag">Multi-Agent Systems</span><span class="stag">Model Context Protocol</span><span class="stag">CNN</span><span class="stag">TensorFlow</span><span class="stag">Keras</span><span class="stag">Supervised Learning</span><span class="stag">Unsupervised Learning</span><span class="stag">Regression</span><span class="stag">Classification</span><span class="stag">Random Forest</span><span class="stag">XGBoost</span><span class="stag">KMeans</span><span class="stag">DBSCAN</span><span class="stag">Hyperparameter Tuning</span><span class="stag">Feature Selection</span><span class="stag">PCA</span><span class="stag">Model Evaluation</span></div>
+      <div class="skill-tags"><span class="stag">Large Language Models</span><span class="stag">RAG Systems</span><span class="stag">Multi-Agent Systems</span><span class="stag">CNN</span><span class="stag">TensorFlow</span><span class="stag">Keras</span><span class="stag">Supervised Learning</span><span class="stag">Unsupervised Learning</span><span class="stag">Regression</span><span class="stag">Classification</span><span class="stag">Random Forest</span><span class="stag">XGBoost</span><span class="stag">KMeans</span><span class="stag">DBSCAN</span><span class="stag">Hyperparameter Tuning</span><span class="stag">Feature Selection</span><span class="stag">PCA</span><span class="stag">Model Evaluation</span></div>
     </div>
     <div class="skill-card">
       <div class="skill-icon-row"><div class="skill-icon mag"><i class="fas fa-comment-dots"></i></div><div><div class="skill-layer">Layer 02</div><div class="skill-name">NLP &amp; LLM Stack</div></div></div>
-      <div class="skill-tags"><span class="stag">Text Preprocessing</span><span class="stag">Tokenization</span><span class="stag">Lemmatization</span><span class="stag">TF-IDF</span><span class="stag">Embeddings</span><span class="stag">Semantic Search</span><span class="stag">Transformers</span><span class="stag">LangChain</span><span class="stag">HuggingFace</span><span class="stag">FAISS</span><span class="stag">Chroma</span><span class="stag">CrewAI</span><span class="stag">Vector Databases</span><span class="stag">MCP Integration</span><span class="stag">pgvector</span><span class="stag">BGE-M3</span></div>
+      <div class="skill-tags"><span class="stag">Text Preprocessing</span><span class="stag">Tokenization</span><span class="stag">Lemmatization</span><span class="stag">TF-IDF</span><span class="stag">Embeddings</span><span class="stag">Semantic Search</span><span class="stag">Hybrid Retrieval</span><span class="stag">Transformers</span><span class="stag">LangChain</span><span class="stag">HuggingFace</span><span class="stag">FAISS</span><span class="stag">Chroma</span><span class="stag">CrewAI</span><span class="stag">Vector Databases</span><span class="stag">pgvector</span><span class="stag">Groq</span></div>
     </div>
     <div class="skill-card">
-      <div class="skill-icon-row"><div class="skill-icon cyan"><i class="fas fa-chart-line"></i></div><div><div class="skill-layer">Layer 03</div><div class="skill-name">Data Science</div></div></div>
+      <div class="skill-icon-row"><div class="skill-icon cyan"><i class="fas fa-diagram-project"></i></div><div><div class="skill-layer">Layer 03</div><div class="skill-name">Workflow &amp; Agent Orchestration</div></div></div>
+      <div class="skill-tags"><span class="stag">Dify</span><span class="stag">n8n</span><span class="stag">Prompt Engineering</span><span class="stag">Conversation Routing</span><span class="stag">Guardrails</span><span class="stag">Supabase</span><span class="stag">pgvector</span><span class="stag">Redis Memory</span><span class="stag">OpenAI Whisper</span><span class="stag">Google Gemini</span><span class="stag">Chatwoot</span><span class="stag">WhatsApp Cloud API</span><span class="stag">Webhooks</span><span class="stag">REST Callbacks</span></div>
+    </div>
+    <div class="skill-card">
+      <div class="skill-icon-row"><div class="skill-icon mag"><i class="fas fa-chart-line"></i></div><div><div class="skill-layer">Layer 04</div><div class="skill-name">Data Science</div></div></div>
       <div class="skill-tags"><span class="stag">Data Cleaning</span><span class="stag">Data Preprocessing</span><span class="stag">EDA</span><span class="stag">Data Visualization</span><span class="stag">Statistical Analysis</span><span class="stag">Feature Engineering</span><span class="stag">Data Mining</span><span class="stag">Model Optimization</span><span class="stag">PyTorch</span><span class="stag">Pandas</span><span class="stag">NumPy</span><span class="stag">Matplotlib</span><span class="stag">Seaborn</span><span class="stag">Scikit-learn</span></div>
     </div>
     <div class="skill-card">
-      <div class="skill-icon-row"><div class="skill-icon"><i class="fas fa-server"></i></div><div><div class="skill-layer">Layer 04</div><div class="skill-name">Backend &amp; DevOps</div></div></div>
-      <div class="skill-tags"><span class="stag">Python</span><span class="stag">FastAPI</span><span class="stag">RESTful APIs</span><span class="stag">PostgreSQL</span><span class="stag">SQL</span><span class="stag">Docker</span><span class="stag">Git</span><span class="stag">System Design</span><span class="stag">SQLAlchemy</span><span class="stag">Alembic</span><span class="stag">Nginx</span><span class="stag">PHP</span><span class="stag">Laravel</span></div>
+      <div class="skill-icon-row"><div class="skill-icon"><i class="fas fa-server"></i></div><div><div class="skill-layer">Layer 05</div><div class="skill-name">Backend &amp; DevOps</div></div></div>
+      <div class="skill-tags"><span class="stag">Python</span><span class="stag">FastAPI</span><span class="stag">RESTful APIs</span><span class="stag">PostgreSQL</span><span class="stag">SQL</span><span class="stag">Docker</span><span class="stag">Git</span><span class="stag">System Design</span><span class="stag">SQLAlchemy</span><span class="stag">Redis</span><span class="stag">PHP</span><span class="stag">Laravel</span></div>
     </div>
     <div class="skill-card">
-      <div class="skill-icon-row"><div class="skill-icon mag"><i class="fas fa-code"></i></div><div><div class="skill-layer">Layer 05</div><div class="skill-name">Web Development</div></div></div>
-      <div class="skill-tags"><span class="stag">HTML</span><span class="stag">CSS</span><span class="stag">JavaScript</span><span class="stag">React.js</span></div>
+      <div class="skill-icon-row"><div class="skill-icon cyan"><i class="fas fa-code"></i></div><div><div class="skill-layer">Layer 06</div><div class="skill-name">Web &amp; Languages</div></div></div>
+      <div class="skill-tags"><span class="stag">HTML</span><span class="stag">CSS</span><span class="stag">JavaScript</span><span class="stag">React.js</span><span class="stag">C++</span><span class="stag">Kotlin</span></div>
     </div>
-    <div class="skill-card">
-      <div class="skill-icon-row"><div class="skill-icon cyan"><i class="fas fa-microchip"></i></div><div><div class="skill-layer">Layer 06</div><div class="skill-name">Other Languages</div></div></div>
-      <div class="skill-tags"><span class="stag">C++</span><span class="stag">Kotlin</span></div>
-    </div>
-  </div>
-</div>
-</div>
-
-<!-- ══════ PROJECTS ══════ -->
-<div class="bg-section" id="projects">
-<div class="section reveal">
-  <div class="section-header">
-    <span class="sec-idx">// 03</span>
-    <h2 class="sec-title">Model <span class="dim">Outputs</span></h2>
-    <div class="sec-line"></div>
-  </div>
-  <div class="projects-grid">
-
-    <!-- ══ NEW: NUTRITION RAG API — FEATURED HERO CARD ══ -->
-    <div class="proj-card hero-proj" style="border-color:rgba(255,170,0,0.3);box-shadow:0 0 40px rgba(255,170,0,0.04);">
-      <div style="display:flex;flex-direction:column;">
-        <div class="proj-header" style="background:rgba(255,170,0,0.05);border-bottom-color:rgba(255,170,0,0.2);">
-          <span class="proj-num" style="color:var(--amber);">// OUTPUT_000</span>
-          <div style="display:flex;align-items:center;gap:8px;">
-            <span class="proj-type-badge feat-amber">⭐ Flagship · Full-Stack RAG API</span>
-            <span style="font-family:var(--font-mono);font-size:8px;padding:2px 9px;letter-spacing:0.15em;text-transform:uppercase;border:1px solid rgba(255,80,80,0.5);color:#ff5555;background:rgba(255,80,80,0.08);animation:wipBlink 2s step-end infinite;">⚠ WIP</span>
-          </div>
-        </div>
-        <div class="proj-body">
-          <div class="proj-title">Nutrition RAG API<br><span style="font-size:11px;color:var(--amber);font-family:var(--font-mono);font-weight:400;letter-spacing:0.1em;">Production-Grade Knowledge Management System</span></div>
-          <div style="display:inline-flex;align-items:center;gap:8px;font-family:var(--font-mono);font-size:10px;padding:6px 12px;margin-bottom:16px;border:1px dashed rgba(255,80,80,0.4);color:#ff7070;background:rgba(255,80,80,0.06);letter-spacing:0.08em;">
-            <span style="width:7px;height:7px;border-radius:50%;background:#ff5555;box-shadow:0 0 6px #ff5555;flex-shrink:0;animation:wipBlink 1.5s step-end infinite;"></span>
-            STATUS: WORK IN PROGRESS — API validation, Alembic migrations &amp; database integration pending verification
-          </div>
-          <p class="proj-desc">End-to-end AI-powered REST API for nutrition science knowledge management — transforming 1,000+ page textbooks into a queryable, streaming, source-cited knowledge base with a multi-agent pipeline, vector search, and Gemini Vision extraction.</p>
-          <ul class="proj-bullets">
-            <li>Architected 19-endpoint FastAPI service with async/await, streaming SSE chat, session management, and background job processing for large PDF ingestion</li>
-            <li>Built 3-agent AI pipeline: RouterAgent (intent classification) → QueryRewriter (conversation-aware reformulation) → RAGSupervisorAgent (retrieval + generation)</li>
-            <li>Engineered multi-modal PDF extraction with Gemini 2.0 Flash Vision — auto-classifying tables, charts, diagrams and achieving 90%+ table reconstruction accuracy</li>
-            <li>Designed pgvector + HNSW index for sub-100ms semantic search across 10,000+ BGE-M3 (1024-dim) document chunks with cosine similarity ranking</li>
-            <li>Containerized full stack with Docker Compose: PostgreSQL + pgvector, Nginx reverse proxy, SSL/TLS, health checks, and Alembic migration management</li>
-            <li>Integrated LangSmith observability, Groq (Llama 3.3 70B) for generation, and perceptual image deduplication — 46 files, ~8,500+ LOC delivered in ~3 days</li>
-          </ul>
-          <div class="proj-stack">
-            <span class="pbadge amber">FastAPI</span>
-            <span class="pbadge amber">PostgreSQL</span>
-            <span class="pbadge amber">pgvector</span>
-            <span class="pbadge">Groq LLM</span>
-            <span class="pbadge">Llama 3.3 70B</span>
-            <span class="pbadge mag">Gemini Vision</span>
-            <span class="pbadge mag">BGE-M3</span>
-            <span class="pbadge cyan">SQLAlchemy 2.0</span>
-            <span class="pbadge cyan">Alembic</span>
-            <span class="pbadge">Docker</span>
-            <span class="pbadge">Nginx</span>
-            <span class="pbadge">PyMuPDF</span>
-            <span class="pbadge">LangSmith</span>
-          </div>
-        </div>
-      </div>
-      <div class="proj-viz" style="border-left-color:rgba(255,170,0,0.2);background:rgba(255,170,0,0.02);">
-        <div>
-          <div class="viz-label" style="color:rgba(255,170,0,0.5);">// Multi-Agent Pipeline</div>
-          <div class="arch-line"><span class="arch-box amber">PDF Upload</span><span class="arch-arrow">→</span><span class="arch-box amber">Gemini Vision</span></div>
-          <div class="arch-line" style="padding-left:20px;margin:2px 0;"><span style="color:rgba(255,170,0,0.5);font-size:10px;">↓ chunks + embeddings</span></div>
-          <div class="arch-line"><span class="arch-box amber">pgvector HNSW</span></div>
-          <div class="arch-line" style="padding-left:20px;margin:2px 0;"><span style="color:rgba(255,170,0,0.5);font-size:10px;">↓ user query</span></div>
-          <div class="arch-line"><span class="arch-box">RouterAgent</span><span class="arch-arrow">→</span><span class="arch-box">QueryRewriter</span></div>
-          <div class="arch-line" style="padding-left:20px;margin:2px 0;"><span style="color:rgba(0,255,136,0.4);font-size:10px;">↓ retrieve top-k chunks</span></div>
-          <div class="arch-line"><span class="arch-box mag">RAGSupervisor</span><span class="arch-arrow">→</span><span class="arch-box cyan">SSE Stream</span></div>
-        </div>
-        <div>
-          <div class="viz-label" style="color:rgba(255,170,0,0.5);">// System Benchmarks</div>
-          <div class="conf-bar"><div class="conf-bar-label"><span>Answer Accuracy</span><span style="color:var(--amber)">85%+</span></div><div class="conf-bar-track"><div class="conf-bar-fill amber" style="width:85%"></div></div></div>
-          <div class="conf-bar"><div class="conf-bar-label"><span>Table Reconstruction</span><span style="color:var(--amber)">90%+</span></div><div class="conf-bar-track"><div class="conf-bar-fill amber" style="width:90%"></div></div></div>
-          <div class="conf-bar"><div class="conf-bar-label"><span>Vision Classification</span><span style="color:var(--amber)">95%+</span></div><div class="conf-bar-track"><div class="conf-bar-fill amber" style="width:95%"></div></div></div>
-          <div class="conf-bar"><div class="conf-bar-label"><span>Query Latency Reduction</span><span style="color:var(--amber)">60%</span></div><div class="conf-bar-track"><div class="conf-bar-fill amber" style="width:60%"></div></div></div>
-        </div>
-        <div>
-          <div class="viz-label" style="color:rgba(255,170,0,0.5);">// Project Scale</div>
-          <table class="rag-metrics-table">
-            <tr><td>API Endpoints</td><td>19</td></tr>
-            <tr><td>Lines of Code</td><td>~8,500+</td></tr>
-            <tr><td>Docker Services</td><td>3</td></tr>
-            <tr><td>DB Tables</td><td>4</td></tr>
-            <tr><td>Embedding Dims</td><td>1,024</td></tr>
-            <tr><td>Build Time</td><td>~3 days</td></tr>
-          </table>
-        </div>
-      </div>
-    </div>
-    <!-- ══ END NEW CARD ══ -->
-
-    <!-- EXISTING FEATURED -->
-    <div class="proj-card hero-proj">
-      <div style="display:flex;flex-direction:column;">
-        <div class="proj-header"><span class="proj-num">// OUTPUT_002</span><span class="proj-type-badge feat">Featured · RAG</span></div>
-        <div class="proj-body">
-          <div class="proj-title">RAG Resume Screening System</div>
-          <p class="proj-desc">AI-powered resume screening with Retrieval-Augmented Generation for intelligent candidate insights and natural language queries over document corpora.</p>
-          <ul class="proj-bullets">
-            <li>Full RAG pipeline with LangChain &amp; LLMs</li>
-            <li>Vector search with FAISS &amp; Chroma backends</li>
-            <li>HuggingFace &amp; OpenAI embeddings integration</li>
-            <li>Automated candidate Q&amp;A with source traceability</li>
-            <li>Benchmarked retrieval accuracy &amp; latency</li>
-          </ul>
-          <div class="proj-stack"><span class="pbadge">LangChain</span><span class="pbadge">FAISS</span><span class="pbadge">Chroma</span><span class="pbadge">HuggingFace</span><span class="pbadge">RAG</span><span class="pbadge">LLM</span></div>
-        </div>
-      </div>
-      <div class="proj-viz">
-        <div>
-          <div class="viz-label">// RAG Architecture Flow</div>
-          <div class="arch-line"><span class="arch-box">Query</span><span class="arch-arrow">→</span><span class="arch-box">Embedder</span></div>
-          <div class="arch-line" style="padding-left:20px"><span class="arch-arrow">↓</span></div>
-          <div class="arch-line"><span class="arch-box">FAISS/Chroma</span><span class="arch-arrow">→</span><span class="arch-box">Retriever</span></div>
-          <div class="arch-line" style="padding-left:20px"><span class="arch-arrow">↓</span></div>
-          <div class="arch-line"><span class="arch-box">LLM</span><span class="arch-arrow">→</span><span class="arch-box">Answer + Source</span></div>
-        </div>
-        <div>
-          <div class="viz-label">// Retrieval Benchmarks</div>
-          <div class="conf-bar"><div class="conf-bar-label"><span>FAISS Speed</span><span style="color:var(--green)">98%</span></div><div class="conf-bar-track"><div class="conf-bar-fill" style="width:98%"></div></div></div>
-          <div class="conf-bar"><div class="conf-bar-label"><span>Chroma Accuracy</span><span style="color:var(--green)">94%</span></div><div class="conf-bar-track"><div class="conf-bar-fill" style="width:94%"></div></div></div>
-          <div class="conf-bar"><div class="conf-bar-label"><span>Source Traceability</span><span style="color:var(--green)">99%</span></div><div class="conf-bar-track"><div class="conf-bar-fill" style="width:99%"></div></div></div>
-        </div>
-      </div>
-    </div>
-
-    <div class="proj-card">
-      <div class="proj-header"><span class="proj-num">// OUTPUT_001</span><span class="proj-type-badge">Multi-Agent</span></div>
-      <div class="proj-body">
-        <div class="proj-title">CrewAI Multi-Agent Travel Planner</div>
-        <p class="proj-desc">Multi-agent AI system coordinating flight, hotel, and itinerary planning through intelligent agent collaboration.</p>
-        <ul class="proj-bullets"><li>Coordinator agent for workflow orchestration</li><li>Multi-agent communication pipeline</li><li>User preference analysis &amp; personalization</li><li>Structured travel plan generation</li></ul>
-        <div class="proj-stack"><span class="pbadge">CrewAI</span><span class="pbadge">Multi-Agent</span><span class="pbadge">LLM</span><span class="pbadge">Python</span></div>
-      </div>
-    </div>
-
-    <div class="proj-card">
-      <div class="proj-header"><span class="proj-num">// OUTPUT_003</span><span class="proj-type-badge">Deep Learning</span></div>
-      <div class="proj-body">
-        <div class="proj-title">Disease Detection from Chest X-Ray</div>
-        <p class="proj-desc">Deep learning system for automated pneumonia detection using CNNs and transfer learning on 5,863 medical images.</p>
-        <ul class="proj-bullets"><li>CNN classifier: Normal vs Pneumonia</li><li>Image augmentation for class imbalance</li><li>Transfer Learning via MobileNetV2</li><li>Evaluated with precision, recall, F1</li></ul>
-        <div class="proj-stack"><span class="pbadge mag">CNN</span><span class="pbadge mag">TensorFlow</span><span class="pbadge mag">Keras</span><span class="pbadge mag">MobileNetV2</span></div>
-      </div>
-    </div>
-
-    <div class="proj-card">
-      <div class="proj-header"><span class="proj-num">// OUTPUT_004</span><span class="proj-type-badge">Classification</span></div>
-      <div class="proj-body">
-        <div class="proj-title">Titanic Survival Prediction</div>
-        <p class="proj-desc">ML classification with multiple algorithms, in-depth EDA, and survival pattern analysis.</p>
-        <ul class="proj-bullets"><li>Data cleaning, EDA &amp; feature engineering</li><li>Survival trends by gender, class, age</li><li>Logistic Regression, Random Forest, XGBoost</li><li>Hyperparameter tuning &amp; cross-validation</li></ul>
-        <div class="proj-stack"><span class="pbadge">XGBoost</span><span class="pbadge">Random Forest</span><span class="pbadge">EDA</span><span class="pbadge">Scikit-learn</span></div>
-      </div>
-    </div>
-
-    <div class="proj-card">
-      <div class="proj-header"><span class="proj-num">// OUTPUT_005</span><span class="proj-type-badge">NLP · Clustering</span></div>
-      <div class="proj-body">
-        <div class="proj-title">News Stories Clustering</div>
-        <p class="proj-desc">NLP-powered unsupervised learning for automated news categorization with text pipelines and cluster quality evaluation.</p>
-        <ul class="proj-bullets"><li>Text preprocessing, tokenization &amp; lemmatization</li><li>TF-IDF feature extraction pipeline</li><li>KMeans clustering with PCA visualization</li><li>Silhouette coefficient analysis</li></ul>
-        <div class="proj-stack"><span class="pbadge cyan">NLP</span><span class="pbadge cyan">KMeans</span><span class="pbadge cyan">TF-IDF</span><span class="pbadge cyan">PCA</span></div>
-      </div>
-    </div>
-
-    <div class="proj-card">
-      <div class="proj-header"><span class="proj-num">// OUTPUT_006</span><span class="proj-type-badge">Regression</span></div>
-      <div class="proj-body">
-        <div class="proj-title">Car Sales Price Prediction</div>
-        <p class="proj-desc">Advanced regression system for accurate vehicle pricing with an optimized model performance pipeline.</p>
-        <ul class="proj-bullets"><li>Feature engineering &amp; correlation analysis</li><li>Ridge Regression, SVR, Random Forest</li><li>Hyperparameter optimization pipeline</li><li>High-accuracy predictive modeling</li></ul>
-        <div class="proj-stack"><span class="pbadge">Regression</span><span class="pbadge">SVR</span><span class="pbadge">Random Forest</span></div>
-      </div>
-    </div>
-
-    <div class="proj-card">
-      <div class="proj-header"><span class="proj-num">// OUTPUT_007</span><span class="proj-type-badge">Analysis</span></div>
-      <div class="proj-body">
-        <div class="proj-title">Advanced Clustering Analysis</div>
-        <p class="proj-desc">Comparative study of DBSCAN vs KMeans with behavioral pattern analysis, noise detection, and visualization.</p>
-        <ul class="proj-bullets"><li>DBSCAN vs KMeans implementation</li><li>Noise &amp; border point detection</li><li>Silhouette coefficient evaluation</li><li>Interactive algorithm comparison</li></ul>
-        <div class="proj-stack"><span class="pbadge mag">DBSCAN</span><span class="pbadge mag">KMeans</span><span class="pbadge mag">Clustering</span></div>
-      </div>
-    </div>
-  </div>
-  <div style="text-align:center;margin-top:48px;">
-    <a href="https://github.com/obeidYoussef" target="_blank" class="btn-ghost"><i class="fab fa-github"></i> Explore All Outputs on GitHub</a>
   </div>
 </div>
 </div>
 
 <!-- ══════ EXPERIENCE ══════ -->
-<div id="experience">
+<div class="bg-section" id="experience">
 <div class="section reveal">
   <div class="section-header">
-    <span class="sec-idx">// 04</span>
+    <span class="sec-idx">// 03</span>
     <h2 class="sec-title">Training <span class="dim">Log</span></h2>
     <div class="sec-line"></div>
   </div>
   <div class="exp-grid">
-    <div class="exp-card" style="border-color:rgba(0,229,255,0.25);box-shadow:0 0 30px rgba(0,229,255,0.04);">
-      <div class="exp-card-header" style="background:rgba(0,229,255,0.03);">
-        <div class="exp-epoch">Epoch 2026–Present <span class="epoch-badge" style="background:rgba(0,229,255,0.1);border-color:rgba(0,229,255,0.3);color:var(--cyan);">● ACTIVE</span></div>
-        <div class="exp-role" style="color:var(--cyan);">Private Programming &amp; CS Instructor</div>
-        <div class="exp-org" style="color:var(--cyan);">Lebanese University</div>
-        <div class="exp-date">Feb 2026 – Present · Tripoli, Lebanon</div>
+
+    <!-- ══ WEBSPOT — FEATURED INTERNSHIP ══ -->
+    <div class="exp-card exp-featured">
+      <div class="exp-card-header">
+        <div>
+          <div class="exp-epoch">Epoch 2026 <span class="epoch-badge">FEATURED</span></div>
+          <div class="exp-role">AI &amp; Prompt Engineering Intern</div>
+          <div class="exp-org">Webspot · On-Site</div>
+          <div class="exp-date">June 2026 – July 2026 · Lebanon</div>
+        </div>
+        <span class="exp-feat-badge">★ Production AI Agents</span>
+      </div>
+      <div class="exp-feat-intro">
+        Shipped and contributed to real, customer-facing AI systems built on Dify workflows — hybrid RAG retrieval, voice and image handling, and multilingual guardrails.
+      </div>
+      <div class="exp-sub-grid">
+        <div class="exp-sub">
+          <div class="exp-sub-tag mag">Production · Customer Service</div>
+          <div class="exp-sub-title">Antoine Saliba — Luxury Jewelry WhatsApp AI Agent</div>
+          <ul>
+            <li>Built a production Dify customer-service agent on a Chatwoot-based WhatsApp platform via webhook triggers and REST callbacks, with Redis-backed memory keyed per customer</li>
+            <li>Multi-branch routing for text, voice, and image — OpenAI Whisper for transcription, a vision model for image description, and an echo filter to prevent self-reply loops</li>
+            <li>Hybrid knowledge-base retrieval, live page scraping for new releases and promotions, and human-agent handoff via the WhatsApp Cloud API</li>
+            <li>Multilingual system prompt (English, Arabic, French) with strict brand, pricing, and escalation guardrails, validated by a structured test suite</li>
+          </ul>
+          <div class="exp-sub-stack"><span class="pbadge mag">Dify</span><span class="pbadge mag">Chatwoot</span><span class="pbadge">Redis</span><span class="pbadge">Whisper</span><span class="pbadge">WhatsApp Cloud API</span></div>
+        </div>
+        <div class="exp-sub">
+          <div class="exp-sub-tag cyan">RAG · Voice</div>
+          <div class="exp-sub-title">Haircare AI Chatbot</div>
+          <ul>
+            <li>Designed and built a Dify workflow-based haircare chatbot using Supabase (pgvector) for hybrid semantic + keyword RAG retrieval</li>
+            <li>Integrated Google Gemini APIs for embeddings, generation, and speech-to-text</li>
+            <li>Multi-branch conversation routing (topic classification, greeting/off-topic handling) to cut retrieval costs and enforce scoped, safe responses</li>
+            <li>Handled voice input — audio transcription and format conversion — for seamless integration with the RAG pipeline</li>
+          </ul>
+          <div class="exp-sub-stack"><span class="pbadge cyan">Dify</span><span class="pbadge cyan">Supabase</span><span class="pbadge cyan">pgvector</span><span class="pbadge">Gemini</span></div>
+        </div>
+        <div class="exp-sub">
+          <div class="exp-sub-tag">Web App · Prompt Eng.</div>
+          <div class="exp-sub-title">World Cup 2026 Prediction App</div>
+          <ul>
+            <li>Contributed to a World Cup 2026 prediction and virtual-betting web application</li>
+            <li>Used prompt engineering and AI tools to support software design, development, and problem-solving</li>
+            <li>Collaborated with the team to implement and improve features and user workflows</li>
+            <li>Gained hands-on experience with AI-driven development on a real-world product</li>
+          </ul>
+          <div class="exp-sub-stack"><span class="pbadge">Prompt Engineering</span><span class="pbadge">AI Tooling</span></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ══ IDS INTERNSHIP ══ -->
+    <div class="exp-card">
+      <div class="exp-card-header">
+        <div class="exp-epoch">Epoch 2025 <span class="epoch-badge">COMPLETED</span></div>
+        <div class="exp-role">Software Development Intern</div>
+        <div class="exp-org">Integrated Digital System (IDS)</div>
+        <div class="exp-date">June 2025 – July 2025 · Online</div>
       </div>
       <div class="exp-body">
         <ul class="exp-list">
-          <li>Teach C programming to university students, covering foundational systems-level concepts</li>
-          <li>Explain core concepts: variables, conditions, loops, functions, and arrays</li>
-          <li>Help students develop problem-solving skills and algorithmic thinking</li>
-          <li>Support students with assignments and exam preparation</li>
+          <li>Developed RESTful APIs and contributed to the backend of a Smart Meeting Management System using Laravel &amp; PHP</li>
+          <li>Built UI components for the meeting-management interface</li>
+          <li>Collaborated across front-end and back-end teams in an agile environment</li>
         </ul>
       </div>
     </div>
+
+    <!-- ══ LEBANESE UNIVERSITY TEACHING ══ -->
+    <div class="exp-card">
+      <div class="exp-card-header">
+        <div class="exp-epoch">Epoch 2026 <span class="epoch-badge">COMPLETED</span></div>
+        <div class="exp-role">Private Programming &amp; CS Instructor</div>
+        <div class="exp-org">Lebanese University</div>
+        <div class="exp-date">Feb 2026 – Jun 2026 · Tripoli, Lebanon</div>
+      </div>
+      <div class="exp-body">
+        <ul class="exp-list">
+          <li>Taught C programming to university students, covering foundational systems-level concepts</li>
+          <li>Explained core concepts: variables, conditions, loops, functions, and arrays</li>
+          <li>Helped students build problem-solving skills and algorithmic thinking</li>
+          <li>Supported students with assignments and exam preparation</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- ══ RHU TEACHING ══ -->
     <div class="exp-card">
       <div class="exp-card-header">
         <div class="exp-epoch">Epoch 2021–2025 <span class="epoch-badge">COMPLETED</span></div>
@@ -747,28 +646,156 @@ footer{position:relative;z-index:1;border-top:1px solid var(--border);padding:32
       <div class="exp-body">
         <ul class="exp-list">
           <li>Delivered academic courses: Intro to Programming, Advanced Programming, DBMS, Theory of Computation &amp; Operating Systems</li>
-          <li>Provided personalized one-on-one tutoring sessions for students</li>
-          <li>Developed strong communication and knowledge transfer skills</li>
-          <li>Mentored students in computer science fundamentals &amp; problem-solving</li>
+          <li>Provided personalized one-on-one tutoring sessions</li>
+          <li>Developed strong communication and knowledge-transfer skills</li>
+          <li>Mentored students in CS fundamentals &amp; problem-solving</li>
         </ul>
       </div>
     </div>
-    <div class="exp-card">
-      <div class="exp-card-header">
-        <div class="exp-epoch">Epoch 2024 <span class="epoch-badge">COMPLETED</span></div>
-        <div class="exp-role">Software Development Intern</div>
-        <div class="exp-org">Integrated Digital System (IDS)</div>
-        <div class="exp-date">June 2024 – July 2024 · Beirut, Lebanon</div>
+  </div>
+</div>
+</div>
+
+<!-- ══════ PROJECTS ══════ -->
+<div id="projects">
+<div class="section reveal">
+  <div class="section-header">
+    <span class="sec-idx">// 04</span>
+    <h2 class="sec-title">Model <span class="dim">Outputs</span></h2>
+    <div class="sec-line"></div>
+  </div>
+  <div class="projects-grid">
+
+    <!-- ══ NUTRIRAG — FEATURED ══ -->
+    <div class="proj-card hero-proj">
+      <div style="display:flex;flex-direction:column;">
+        <div class="proj-header"><span class="proj-num">// OUTPUT_001</span><span class="proj-type-badge feat">Featured · RAG · Multi-Agent</span></div>
+        <div class="proj-body">
+          <div class="proj-title">NutriRAG — Nutrition RAG Assistant</div>
+          <p class="proj-desc">A Streamlit-based nutrition Q&amp;A assistant that answers questions from nutrition-science documents using a multi-agent RAG pipeline, with grounded, source-aware responses over ingested PDFs (text, tables, and images).</p>
+          <ul class="proj-bullets">
+            <li>Built a multi-agent RAG architecture with intent routing and query rewriting before retrieval</li>
+            <li>Grounded response generation using Groq-hosted LLMs to keep answers tied to retrieved context</li>
+            <li>PDF ingestion for text, tables, and images via PyMuPDF and Gemini Vision</li>
+            <li>Semantic retrieval with a Chroma vector database and sentence-transformer embeddings</li>
+          </ul>
+          <div class="proj-stack"><span class="pbadge">Streamlit</span><span class="pbadge">Groq LLM</span><span class="pbadge mag">Gemini Vision</span><span class="pbadge">PyMuPDF</span><span class="pbadge cyan">Chroma</span><span class="pbadge cyan">Sentence-Transformers</span><span class="pbadge">RAG</span><span class="pbadge">Multi-Agent</span></div>
+        </div>
       </div>
-      <div class="exp-body">
-        <ul class="exp-list">
-          <li>Built frontend &amp; backend for Smart Meeting Room Management System using Laravel &amp; PHP</li>
-          <li>Designed intuitive interfaces improving scheduling efficiency</li>
-          <li>Developed RESTful APIs for seamless module communication</li>
-          <li>Collaborated in agile cross-functional team environment</li>
-        </ul>
+      <div class="proj-viz">
+        <div>
+          <div class="viz-label">// Ingestion Pipeline</div>
+          <div class="arch-line"><span class="arch-box">PDF</span><span class="arch-arrow">→</span><span class="arch-box mag">PyMuPDF + Gemini Vision</span></div>
+          <div class="arch-line" style="padding-left:20px"><span class="arch-arrow">↓ text · tables · images</span></div>
+          <div class="arch-line"><span class="arch-box cyan">Chroma (embeddings)</span></div>
+        </div>
+        <div>
+          <div class="viz-label">// Query Pipeline</div>
+          <div class="arch-line"><span class="arch-box">Router</span><span class="arch-arrow">→</span><span class="arch-box">Query Rewriter</span></div>
+          <div class="arch-line" style="padding-left:20px"><span class="arch-arrow">↓ retrieve top-k</span></div>
+          <div class="arch-line"><span class="arch-box mag">Groq LLM</span><span class="arch-arrow">→</span><span class="arch-box cyan">Grounded Answer</span></div>
+        </div>
       </div>
     </div>
+
+    <!-- ══ RESUME SCREENING — FEATURED ══ -->
+    <div class="proj-card hero-proj">
+      <div style="display:flex;flex-direction:column;">
+        <div class="proj-header"><span class="proj-num">// OUTPUT_002</span><span class="proj-type-badge feat">Featured · RAG</span></div>
+        <div class="proj-body">
+          <div class="proj-title">Resume Screening System (LLM + RAG)</div>
+          <p class="proj-desc">An AI resume-screening tool that lets you query a corpus of resumes in natural language and returns grounded, source-traceable answers — built to compare how different vector stores behave on the same retrieval task.</p>
+          <ul class="proj-bullets">
+            <li>Full RAG pipeline with LangChain and RetrievalQA over a resume document corpus</li>
+            <li>Vector search implemented on both FAISS and Chroma backends</li>
+            <li>Compared the two backends on retrieval quality and latency for the same queries</li>
+            <li>Answers returned with source traceability back to the originating resume</li>
+          </ul>
+          <div class="proj-stack"><span class="pbadge">LangChain</span><span class="pbadge">FAISS</span><span class="pbadge">Chroma</span><span class="pbadge">RetrievalQA</span><span class="pbadge">RAG</span><span class="pbadge">LLM</span></div>
+        </div>
+      </div>
+      <div class="proj-viz">
+        <div>
+          <div class="viz-label">// RAG Architecture Flow</div>
+          <div class="arch-line"><span class="arch-box">Query</span><span class="arch-arrow">→</span><span class="arch-box">Embedder</span></div>
+          <div class="arch-line" style="padding-left:20px"><span class="arch-arrow">↓</span></div>
+          <div class="arch-line"><span class="arch-box">FAISS / Chroma</span><span class="arch-arrow">→</span><span class="arch-box">Retriever</span></div>
+          <div class="arch-line" style="padding-left:20px"><span class="arch-arrow">↓</span></div>
+          <div class="arch-line"><span class="arch-box mag">LLM</span><span class="arch-arrow">→</span><span class="arch-box cyan">Answer + Source</span></div>
+        </div>
+        <div>
+          <div class="viz-label">// What I Compared</div>
+          <ul class="capa-list">
+            <li>Retrieval relevance: FAISS vs Chroma on the same query set</li>
+            <li>Query latency across both backends</li>
+            <li>Source attribution back to the original resume</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="proj-card">
+      <div class="proj-header"><span class="proj-num">// OUTPUT_003</span><span class="proj-type-badge">Multi-Agent</span></div>
+      <div class="proj-body">
+        <div class="proj-title">CrewAI Multi-Agent Travel Planner</div>
+        <p class="proj-desc">Multi-agent AI system coordinating flight, hotel, and itinerary recommendations through agent collaboration and workflow orchestration.</p>
+        <ul class="proj-bullets"><li>Coordinated flight, hotel &amp; itinerary agents</li><li>Workflow orchestration across agents</li><li>Recommendations driven by user preferences</li><li>Structured travel-plan generation</li></ul>
+        <div class="proj-stack"><span class="pbadge">CrewAI</span><span class="pbadge">Multi-Agent</span><span class="pbadge">LLM</span><span class="pbadge">Python</span></div>
+      </div>
+    </div>
+
+    <div class="proj-card">
+      <div class="proj-header"><span class="proj-num">// OUTPUT_004</span><span class="proj-type-badge">Deep Learning</span></div>
+      <div class="proj-body">
+        <div class="proj-title">Disease Detection from Chest X-Ray</div>
+        <p class="proj-desc">Deep learning system for automated pneumonia detection using CNNs and transfer learning on 5,863 medical images.</p>
+        <ul class="proj-bullets"><li>CNN classifier: Normal vs Pneumonia</li><li>Image augmentation for class imbalance</li><li>Transfer Learning via MobileNetV2</li><li>Evaluated with precision, recall, F1</li></ul>
+        <div class="proj-stack"><span class="pbadge mag">CNN</span><span class="pbadge mag">TensorFlow</span><span class="pbadge mag">Keras</span><span class="pbadge mag">MobileNetV2</span></div>
+      </div>
+    </div>
+
+    <div class="proj-card">
+      <div class="proj-header"><span class="proj-num">// OUTPUT_005</span><span class="proj-type-badge">Classification</span></div>
+      <div class="proj-body">
+        <div class="proj-title">Titanic Survival Prediction</div>
+        <p class="proj-desc">ML classification with multiple algorithms, in-depth EDA, and survival pattern analysis.</p>
+        <ul class="proj-bullets"><li>Data cleaning, EDA &amp; feature engineering</li><li>Survival trends by gender, class, age</li><li>Logistic Regression, Random Forest, XGBoost</li><li>Hyperparameter tuning &amp; cross-validation</li></ul>
+        <div class="proj-stack"><span class="pbadge">XGBoost</span><span class="pbadge">Random Forest</span><span class="pbadge">EDA</span><span class="pbadge">Scikit-learn</span></div>
+      </div>
+    </div>
+
+    <div class="proj-card">
+      <div class="proj-header"><span class="proj-num">// OUTPUT_006</span><span class="proj-type-badge">NLP · Clustering</span></div>
+      <div class="proj-body">
+        <div class="proj-title">News Stories Clustering</div>
+        <p class="proj-desc">NLP-powered unsupervised learning for automated news categorization with text pipelines and cluster quality evaluation.</p>
+        <ul class="proj-bullets"><li>Text preprocessing, tokenization &amp; lemmatization</li><li>TF-IDF feature extraction pipeline</li><li>KMeans clustering with PCA visualization</li><li>Silhouette coefficient analysis</li></ul>
+        <div class="proj-stack"><span class="pbadge cyan">NLP</span><span class="pbadge cyan">KMeans</span><span class="pbadge cyan">TF-IDF</span><span class="pbadge cyan">PCA</span></div>
+      </div>
+    </div>
+
+    <div class="proj-card">
+      <div class="proj-header"><span class="proj-num">// OUTPUT_007</span><span class="proj-type-badge">Regression</span></div>
+      <div class="proj-body">
+        <div class="proj-title">Car Sales Price Prediction</div>
+        <p class="proj-desc">Advanced regression system for accurate vehicle pricing with an optimized model performance pipeline.</p>
+        <ul class="proj-bullets"><li>Feature engineering &amp; correlation analysis</li><li>Ridge Regression, SVR, Random Forest</li><li>Hyperparameter optimization pipeline</li><li>High-accuracy predictive modeling</li></ul>
+        <div class="proj-stack"><span class="pbadge">Regression</span><span class="pbadge">SVR</span><span class="pbadge">Random Forest</span></div>
+      </div>
+    </div>
+
+    <div class="proj-card">
+      <div class="proj-header"><span class="proj-num">// OUTPUT_008</span><span class="proj-type-badge">Analysis</span></div>
+      <div class="proj-body">
+        <div class="proj-title">Advanced Clustering Analysis</div>
+        <p class="proj-desc">Comparative study of DBSCAN vs KMeans with behavioral pattern analysis, noise detection, and visualization.</p>
+        <ul class="proj-bullets"><li>DBSCAN vs KMeans implementation</li><li>Noise &amp; border point detection</li><li>Silhouette coefficient evaluation</li><li>Interactive algorithm comparison</li></ul>
+        <div class="proj-stack"><span class="pbadge mag">DBSCAN</span><span class="pbadge mag">KMeans</span><span class="pbadge mag">Clustering</span></div>
+      </div>
+    </div>
+  </div>
+  <div style="text-align:center;margin-top:48px;">
+    <a href="https://github.com/obeidYoussef" target="_blank" class="btn-ghost"><i class="fab fa-github"></i> Explore All Outputs on GitHub</a>
   </div>
 </div>
 </div>
@@ -784,7 +811,7 @@ footer{position:relative;z-index:1;border-top:1px solid var(--border);padding:32
   <div class="contact-grid">
     <div>
       <div class="contact-headline">INITIALIZE<br><span class="glow">CONNECTION</span></div>
-      <p class="contact-sub">Actively seeking Junior AI Engineer positions. Excited about opportunities in LLMs, RAG systems, multi-agent AI, NLP, and data science. Passionate about solving real-world problems through intelligent systems, predictive modeling, and generative AI applications.</p>
+      <p class="contact-sub">Actively seeking an AI Engineering role — LLMs, RAG systems, multi-agent AI, workflow orchestration, and NLP. I like solving real problems with grounded, reliable AI systems, and I'm happy to walk through any project in detail.</p>
       <div class="endpoint-tag"><i class="fas fa-satellite-dish"></i> POST /api/contact · STATUS 200 OK</div>
     </div>
     <div class="contact-items">
@@ -799,7 +826,7 @@ footer{position:relative;z-index:1;border-top:1px solid var(--border);padding:32
 
 <!-- ══════ FOOTER ══════ -->
 <footer>
-  <div class="footer-sig">Designed &amp; Built by <span>Youssef Obeid</span> · <span>© 2025</span> · All rights reserved</div>
+  <div class="footer-sig">Designed &amp; Built by <span>Youssef Obeid</span> · <span>© 2026</span> · All rights reserved</div>
   <div class="footer-soc">
     <a href="https://github.com/obeidYoussef" target="_blank"><i class="fab fa-github"></i></a>
     <a href="https://www.linkedin.com/in/yousef-obeid" target="_blank"><i class="fab fa-linkedin"></i></a>
@@ -820,7 +847,7 @@ document.addEventListener('mousemove',e=>{
 });
 setInterval(()=>{ lbl=(lbl+1)%labels.length; curLabel.textContent=labels[lbl]; },1800);
 
-document.querySelectorAll('a,button,.skill-card,.proj-card,.exp-card,.ci,.chip,.stag').forEach(el=>{
+document.querySelectorAll('a,button,.skill-card,.proj-card,.exp-card,.exp-sub,.ci,.chip,.stag').forEach(el=>{
   el.addEventListener('mouseenter',()=>{ aiCursor.style.transform='translate(-50%,-50%) scale(1.5)'; curLabel.textContent='SELECT'; });
   el.addEventListener('mouseleave',()=>{ aiCursor.style.transform='translate(-50%,-50%) scale(1)'; curLabel.textContent=labels[lbl]; });
 });
@@ -894,7 +921,7 @@ document.querySelectorAll('a[href^="#"]').forEach(a=>{
 const navLinks=document.querySelectorAll('.nav-links a');
 window.addEventListener('scroll',()=>{
   let cur='';
-  ['about','skills','projects','experience','contact'].forEach(id=>{
+  ['about','skills','experience','projects','contact'].forEach(id=>{
     const el=document.getElementById(id);
     if(el&&window.scrollY>=el.offsetTop-100)cur=id;
   });
